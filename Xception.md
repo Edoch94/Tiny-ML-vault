@@ -1,0 +1,9 @@
+Xception is a deep [[Convolutional Neural Networks|convolutional neural network (CNN)]] architecture that was proposed by François Chollet, the creator of the Keras deep learning library, in 2016. The name Xception is a combination of "extreme inception" because it is based on the Inception architecture and "Xceptional" because of its performance.
+
+The Xception architecture is based on the **Inception** architecture, which uses **multiple convolutional layers** with **different filter sizes** to <u>capture both local and global features</u>. 
+
+However, in **Xception**, the **convolutional layers are rearranged** in a way that *separates* the <u>cross-channel correlations</u> and <u>spatial correlations</u>. This is achieved by replacing the standard 3x3 convolutions in Inception modules with a series of 1x1 convolutions followed by 3x3 depthwise separable convolutions, and then followed by another series of 1x1 convolutions. Depthwise separable convolutions factorize a standard convolution into a depthwise convolution and a pointwise convolution, which significantly reduces the number of parameters and computational cost while maintaining accuracy.
+
+The Xception architecture has **several advantages** over other CNN architectures, such as VGG and ResNet. It has **fewer parameters and lower computational cost**, while achieving higher accuracy on image classification tasks such as the ImageNet dataset. This makes it an <u>attractive architecture for resource-constrained applications</u> such as mobile and embedded devices.
+
+Since its introduction, Xception has been widely adopted and achieved state-of-the-art performance on various computer vision tasks, such as object detection, semantic segmentation, and image captioning.

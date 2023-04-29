@@ -1,9 +1,38 @@
+#paper
+
 # Abstract
-We focus on the challenging task of real-time semantic segmentation in this paper. It finds many practical applications and yet is with fundamental difficulty of reducing a large portion of computation for pixel-wise label inference. We propose an image cascade network (ICNet) that incorporates multi-resolution branches under proper label guidance to address this challenge. We provide in-depth analysis of our framework and introduce the cascade feature fusion unit to quickly achieve high-quality segmentation. Our system yields real-time inference on a single GPU card with decent quality results evaluated on challenging datasets like Cityscapes, CamVid and COCO-Stuff.
+We focus on the challenging task of **real-time semantic segmentation** in this paper. It finds many practical applications and yet is with fundamental difficulty of reducing a large portion of computation for pixel-wise label inference. We propose an **image cascade network (ICNet)** that incorporates <u>multi-resolution branches</u> under proper <u>label guidance</u> to address this challenge. We provide in-depth analysis of our framework and introduce the **cascade feature fusion unit** to quickly achieve high-quality segmentation. Our system yields real-time inference on a single GPU card with decent quality results evaluated on challenging datasets like Cityscapes, CamVid and COCO-Stuff.
 
 ---
 
-# Keywords
-- Real-Time
-- High-Resolution
-- Semantic Segmentation
+# Introduction
+CNN-based semantic segmentation mainly exploits [[Fully Convolutional Network|fully convolutional networks (FCNs)]]. It is common wisdom now that increase of result accuracy almost means more operations, especially for pixel-level prediction tasks like semantic segmentation.
+
+Our experiments show that high-accuracy methods of ResNet38 and PSPNet take around 1 second to predict a 1024 × 2048 high-resolution image on one Nvidia TitanX GPU card during testing. Recent fast semantic segmentation methods of [[04 - ENet A Deep Neural Network Architecture for Real-Time Semantic Segmentation|ENet]] and SQ, contrarily, take quite different positions in the plot. The speed is much accelerated; but accuracy drops, where the final mIoUs are lower than 60%. These methods are located in the lower right phase in the figure.
+
+![[Pasted image 20230429220036.png]]
+
+## Our Focus and Contributions 
+In this paper, we focus on building a practically fast semantic segmentation system with <u>decent prediction accuracy</u>. Our method is the first in its kind to locate in the top-right area shown in the figure and is one of the only two available real-time approaches. It achieves <u>decent trade-off between efficiency and accuracy</u>. Different from previous architectures, we make comprehensive consideration on the two factors of speed and accuracy that are seemingly contracting. We first make in-depth analysis of time budget in semantic segmentation frameworks and conduct extensive experiments to demonstrate insufficiency of intuitive speedup strategies. This motivates development of **image cascade network (ICNet)**, a <u>high efficiency segmentation system with decent quality</u>. It exploits efficiency of processing low-resolution images and high inference quality of high-resolution ones.
+
+The idea is to let <u>low-resolution images</u> go through the <u>full semantic perception network</u> first for a coarse prediction map. Then **cascade feature fusion unit** and **cascade label guidance strategy** are proposed to <u>integrate medium and high resolution features</u>, which refine the coarse semantic map gradually. We make all our code and models publicly available. Our main contributions and performance statistics are the following
+- We develop a novel and unique image [[Cascade Network|cascade network]] for <u>real-time semantic segmentation</u>, it utilizes semantic information in low resolution along with details from high-resolution images efficiently.
+- The developed **cascade feature fusion unit** together with <u>cascade label guidance can recover</u> and <u>refine segmentation prediction progressively</u> with a <u>low computation cost</u>.
+- Our ICNet achieves 5× speedup of inference time, and reduces memory consumption by 5× times. It can run at high resolution 1024×2048 in speed of 30 fps while accomplishing high-quality results. It yields real-time inference on various datasets including Cityscapes, CamVid and COCO-Stuff.
+
+# Architecture
+![[Pasted image 20230429221857.png]]
+
+Our proposed system image cascade network (ICNet) takes cascade image inputs (i.e., low-, medium- and high resolution images), adopts cascade feature fusion unit and is trained with cascade label guidance. The input image with full resolution (e.g., 1024 × 2048 in Cityscapes) is downsampled by factors of 2 and 4, forming cascade input to medium- and high-resolution branches.
+
+<u>Segmenting the high-resolution input</u> with classical frameworks like FCN directly is <u>time consuming</u>. To **overcome** this shortcoming, we get **semantic extraction using low-resolution input** as shown in **top branch**. A <u>1/4</u> sized image is fed into <u>PSPNet with downsampling rate 8</u>, resulting in a <u>1/32-resolution feature map</u>. To **get high quality segmentation**, **medium and high resolution branches** (middle and bottom parts of figure) help **recover** and **refine** the coarse prediction. Though some details are missing and blurry boundaries are generated in the **top branch**, it already **harvests most semantic parts**. Thus we can <u>safely limit the number of parameters in both middle and bottom branches</u>. Light weighted CNNs (green dotted box) are adopted in higher resolution branches; different-branch output feature maps are **fused by cascade-feature-fusion unit** and trained with cascade label guidance. Although the <u>top branch is based on a full segmentation backbone</u>, the **input resolution is low, resulting in limited computation**. Even for PSPNet with 50+ layers, inference time and memory are 18ms and 0.6GB for the large images in Cityscapes. Because weights and computation (in 17 layers) can be shared between low- and medium-branches, only 6ms is spent to construct the fusion map. <u>Bottom branch has even less layers</u>. Although the resolution is high, inference only takes 9ms. Details of the architecture are presented in the supplementary file. With all these three branches, our ICNet becomes a very efficient and memory friendly architecture that can achieve good-quality segmentation.
+
+## Cascade Feature Fusion
+![[Pasted image 20230429223848.png]]
+To <u>combine cascade features from different resolution inputs</u>, we propose a cascade feature fusion (CFF) unit as shown in figure. The input to this unit contains three components: 
+- two feature maps F1 and F2 with sizes C1 × H1 × W1 and C2 × H2 × W2 respectively, 
+- and a ground-truth label with resolution 1×H2 ×W2 . 
+F2 is with doubled spatial size of F1 . We first apply **upsampling rate 2 on F1** through bilinear interpolation, yielding the same spatial size as F2 . Then a **dilated convolution layer** with kernel size C3 × 3 × 3 and dilation 2 is applied to refine the upsampled features. The resulting feature is with size C3 × H2 × W2. This dilated convolution combines feature information from several originally neighboring pixels. Compared with deconvolution, upsampling followed by dilated convolution only needs small kernels, to harvest the same receptive field. To keep the same receptive field, deconvolution needs larger kernel sizes than upsampling with dilated convolution (i.e., 7 × 7 vs. 3 × 3), which causes more computation. For feature **F2** , a **projection convolution** with kernel size C3 × 1 × 1 is utilized to <u>project F2 so that it has the same number of channels as the output of F1</u>. Then two **batch normalization layers** are used to **normalize these two processed features** as shown in figure. Followed by an element-wise "sum" layer and a "ReLU" layer, we obtain the fused feature F20 as C3 × H2 × W2 . To enhance learning of F1 , we use an auxiliary label guidance on the upsampled feature of F1 .
+
+## Cascade Label Guidance
+To enhance the learning procedure in each branch, we adopt a [[Cascade Label Guidance|cascade label guidance (CLG)]] strategy. It utilizes different-scale (e.g., 1/16, 1/8, and 1/4) ground-truth labels to guide the learning stage of low, medium and high resolution input.

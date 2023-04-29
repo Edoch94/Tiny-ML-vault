@@ -1,0 +1,9 @@
+The U-Net architecture, also known as the U-shape technique, is a [[Convolutional Neural Networks|convolutional neural network (CNN)]] architecture that is commonly used for [[Semantic Segmentation|semantic segmentation]] tasks, such as medical image segmentation.
+
+The U-Net architecture is named for its U-shape, which consists of an **encoder-decoder structure**. The **encoder** is a series of convolutional and pooling layers that *downsample the input image and extract high-level features*. The **decoder** is a series of convolutional and *upsampling layers* that upsample the feature maps to *generate a pixel-wise segmentation map*.
+
+The key innovation of the U-Net architecture is the use of **skip connections**, which <u>connect the corresponding layers</u> in the encoder and decoder. These skip connections <u>allow the decoder to use the detailed spatial information from the encoder</u> to produce **more accurate segmentations**.
+
+The U-Net architecture is particularly effective for semantic segmentation tasks because it **can capture both global and local context information**. The encoder can capture high-level semantic features such as shape and structure, while the decoder can use the detailed spatial information to produce precise segmentations. Additionally, the *skip connections* enable the network to effectively **handle class imbalance** and reduce the impact of misclassified pixels.
+
+The U-Net architecture has been widely used in a variety of medical imaging applications, such as tumor segmentation and cell segmentation, and has also been applied to other image segmentation tasks, such as road segmentation in autonomous driving.

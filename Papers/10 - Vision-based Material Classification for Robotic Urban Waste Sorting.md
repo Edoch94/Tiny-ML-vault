@@ -1,3 +1,5 @@
+#paper
+
 In contrast to the preceding, the current work focuses on much more complex multi-object images, solving a three-fold problem related to object identification (bounding box specification), localization (masking), and material type attribution (classification). This triplet makes our solution applicable in industrial conditions where several potentially overlapping recyclables shown in the very same image need to be identified, localized, and classified.
 
 Key components deployed in the robot cabin are described in the following.

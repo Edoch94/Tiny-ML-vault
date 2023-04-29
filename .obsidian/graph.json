@@ -1,0 +1,30 @@
+{
+  "collapse-filter": false,
+  "search": "",
+  "showTags": true,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "#paper",
+      "color": {
+        "a": 1,
+        "rgb": 14048348
+      }
+    }
+  ],
+  "collapse-display": false,
+  "showArrow": false,
+  "textFadeMultiplier": 0,
+  "nodeSizeMultiplier": 1.12083333333333,
+  "lineSizeMultiplier": 0.967708333333333,
+  "collapse-forces": false,
+  "centerStrength": 0.625,
+  "repelStrength": 12.2916666666667,
+  "linkStrength": 1,
+  "linkDistance": 250,
+  "scale": 0.9211406120190345,
+  "close": true
+}
