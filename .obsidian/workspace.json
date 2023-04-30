@@ -20,12 +20,12 @@
             }
           },
           {
-            "id": "7fa7f5b5abe5e201",
+            "id": "8effab03a644d740",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Papers/07 - Focal Loss for Dense Object Detection.md",
+                "file": "Project/Repos.md",
                 "mode": "source",
                 "source": false
               }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Papers/07 - Focal Loss for Dense Object Detection.md",
+                "file": "Project/Repos.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Papers/07 - Focal Loss for Dense Object Detection.md",
+                "file": "Project/Repos.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Papers/07 - Focal Loss for Dense Object Detection.md"
+                "file": "Project/Repos.md"
               }
             }
           }
@@ -158,20 +158,29 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "7fa7f5b5abe5e201",
+  "active": "8effab03a644d740",
   "lastOpenFiles": [
+    "Project/Repos.md",
     "Papers/04 - ENet A Deep Neural Network Architecture for Real-Time Semantic Segmentation.md",
+    "Papers/pdf/02 - BiSeNet V2 Bilateral Network with Guided Aggregation for Real-time Semantic Segmentation.pdf",
+    "Papers/pdf/01 - BiSeNet Bilateral Segmentation Network for Real-time Semantic Segmentation.pdf",
+    "Papers/10 - Vision-based Material Classification for Robotic Urban Waste Sorting.md",
+    "Papers/01 - BiSeNet Bilateral Segmentation Network for Real-time Semantic Segmentation.md",
+    "Papers/07 - Focal Loss for Dense Object Detection.md",
+    "Papers/05 - Unsupervised representation learning by predicting image rotations.md",
+    "Papers/02 - BiSeNet V2 Bilateral Network with Guided Aggregation forReal-time Semantic Segmentation.md",
+    "Papers/03 - ICNet for Real-Time Semantic Segmentationon High-Resolution Images.md",
+    "Papers/06 - Context Encoders Feature Learning by Inpainting.md",
+    "Papers/08 - Class-Balanced Loss Based on Effective Number of Samples.md",
+    "Papers/09 - Garbage Collection and Sorting with a Mobile Manipulator using Deep Learning and Whole-Body Control.md",
     "Images/Pasted image 20230429223848.png",
     "Images/Pasted image 20230429231702.png",
-    "Papers/03 - ICNet for Real-Time Semantic Segmentationon High-Resolution Images.md",
     "Cascade Label Guidance.md",
     "Images/Pasted image 20230429221857.png",
     "Cascade Network.md",
     "Fully Convolutional Network.md",
     "Images/Pasted image 20230429220036.png",
-    "Papers/02 - BiSeNet V2 Bilateral Network with Guided Aggregation forReal-time Semantic Segmentation.md",
     "Images/Pasted image 20230429204034.png",
-    "Papers/01 - BiSeNet Bilateral Segmentation Network for Real-time Semantic Segmentation.md",
     "Images/Pasted image 20230429202624.png",
     "Bilateral Segmentation Network.md",
     "Spatial Path.md",
@@ -182,17 +191,10 @@
     "Images/Pasted image 20230429191935.png",
     "Images",
     "Images/Pasted image 20230429190020.png",
-    "Papers/pdf/01 - BiSeNet Bilateral Segmentation Network for Real-time Semantic Segmentation.pdf",
     "U-Net architecture.md",
     "ResNet-50.md",
     "Convolutional Neural Networks.md",
     "Semantic Segmentation.md",
-    "Papers/10 - Vision-based Material Classification for Robotic Urban Waste Sorting.md",
-    "Papers/09 - Garbage Collection and Sorting with a Mobile Manipulator using Deep Learning and Whole-Body Control.md",
-    "Papers/08 - Class-Balanced Loss Based on Effective Number of Samples.md",
-    "Papers/07 - Focal Loss for Dense Object Detection.md",
-    "Papers/06 - Context Encoders Feature Learning by Inpainting.md",
-    "Papers/05 - Unsupervised representation learning by predicting image rotations.md",
     "Pooling Layers.md",
     "Convolutional Layers.md",
     "Project",
@@ -201,7 +203,6 @@
     "Papers/pdf/08 - Class-Balanced Loss Based on Effective Number of Samples.pdf",
     "Papers/pdf/07 - Focal Loss for Dense Object Detection.pdf",
     "Papers/pdf/06 - Context Encoders Feature Learning by Inpainting.pdf",
-    "Papers/pdf/05 - Unsupervised representation learning by predicting image rotations.pdf",
-    "Papers/pdf/04 - ENet A Deep Neural Network Architecture for Real-Time Semantic Segmentation.pdf"
+    "Papers/pdf/05 - Unsupervised representation learning by predicting image rotations.pdf"
   ]
 }
