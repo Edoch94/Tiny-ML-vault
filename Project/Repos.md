@@ -13,3 +13,5 @@ https://github.com/Tramac/awesome-semantic-segmentation-pytorch
 ## Bisenet
 https://github.com/Tramac/awesome-semantic-segmentation-pytorch/blob/master/core/models/bisenet.py
 
+## ICNet
+https://github.com/Tramac/awesome-semantic-segmentation-pytorch/blob/master/core/models/icnet.py
