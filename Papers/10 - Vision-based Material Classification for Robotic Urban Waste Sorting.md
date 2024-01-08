@@ -1,6 +1,8 @@
-#paper
-
-In contrast to the preceding, the current work focuses on much more complex multi-object images, solving a three-fold problem related to object identification (bounding box specification), localization (masking), and material type attribution (classification). This triplet makes our solution applicable in industrial conditions where several potentially overlapping recyclables shown in the very same image need to be identified, localized, and classified.
+---
+tags:
+  - paper
+---
+In contrast to the preceding, the current work focuses on much more complex multi-object images, solving a three-fold problem related to **object identification** (bounding box specification), **localization** (masking), and **material type attribution** (classification). This triplet makes our solution applicable in industrial conditions where several potentially overlapping recyclables shown in the very same image need to be identified, localized, and classified.
 
 Key components deployed in the robot cabin are described in the following.
 - Conveyor belt
@@ -13,26 +15,24 @@ This article presents an integrated robotic system for recyclable sorting that i
 - a robotic manipulator for the physical separation of waste to different bins, depending on the material type
 - a vision-based material detection and categorization module
 
-The majority of robotic systems for recyclable sorting rely on a pick-and-place (PnP) process to select objects and physically transfer them to the appropriate material bin. Capitalizing on delta robots, we developed a composite system that performs fast recyclable sorting by adopting the PnP approach. Given that recyclables do not require fine manipulations, the gripping of objects is often implemented with the use of vacuum technology.
+The majority of robotic systems for recyclable sorting rely on a pick-and-place (PnP) process to **select objects and physically transfer them to the appropriate material bin**. Capitalizing on delta robots, we developed a composite system that performs fast recyclable sorting by adopting the PnP approach. Given that recyclables do not require fine manipulations, the gripping of objects is often implemented with the use of vacuum technology.
 
 Generally speaking, there are two main technologies to generate a vacuum
 - Venturi generators
 - Blowers
 
-CNNs trained with deep learning algorithms have been widely applied in demanding computer vision applications. Interestingly, CNNs have also been used to perform waste classification, although they were applied to a relatively small data set with single-item images and without any type of occlusion. In contrast, the present work targets "instance segmentation" to accomplish multipleobject identification and labeling. To this end, the well-known [[Mask Regional CNN|R-CNN]] open source network was employed since it has been particularly successful at similar tasks. Mask R-CNN provides a scalable means for categorizing recyclables into a high number of classes. However, this cannot be done incrementally. Any time a class is added, a full retraining of the model is assumed, according to the specification of the new data set.
-
-
+CNNs trained with deep learning algorithms have been widely applied in demanding computer vision applications. Interestingly, CNNs have also been used to perform waste classification, although they were applied to a relatively small data set with single-item images and without any type of occlusion. In contrast, the present work targets **"instance segmentation" to accomplish multipleobject identification and labeling**. To this end, the well-known **[[Mask Regional CNN|R-CNN]] open source network was employed** since it has been particularly successful at similar tasks. Mask R-CNN provides a **scalable** means for categorizing recyclables into a high number of classes. However, this **cannot be done incrementally**. Any time a class is added, a full retraining of the model is assumed, according to the specification of the new data set.
 
 # Data collection and processing procedure
 According to the PDF file, there are only two open source datasets available for public use, namely TrashNet and Taco. Both cover waste classification for outdoor cases rather than for demanding industrial setups, where objects transferred on conveyor belts can be strongly deformed, dirty, and piled on top of one another. The present work's approach to develop the data set differs from the techniques in the works mentioned previously. You can find this information on page 6 of the PDF file.
-The authors of the article did not use the already existing datasets, TrashNet and Taco, because both cover waste classification for outdoor cases rather than for demanding industrial setups, where objects transferred on conveyor belts can be strongly deformed, dirty, and piled on top of one another. The present work's approach to develop the data set differs from the techniques in the works mentioned previously. Therefore, they developed their own dataset using a different approach to better suit their needs. You can find this information on page 6 of the PDF file.
+The authors of the article did not use the already existing datasets, TrashNet and Taco, because both cover waste classification for outdoor cases rather than for demanding industrial setups, where objects transferred on conveyor belts can be strongly deformed, dirty, and piled on top of one another. The present work's approach to develop the data set differs from the techniques in the works mentioned previously. Therefore, they **developed their own dataset** using a different approach to better suit their needs. You can find this information on page 6 of the PDF file.
 
-The authors of the article followed a semiautomated procedure to develop the data set for training Mask R-CNN. They collected 400 images for each of the material types considered in the study, namely, aluminum, paper and cardboard, polyethylene terephthalate (PET) bottles, and nylon. Then they followed a manual procedure to collect red-green-blue images. All images had the same size of 800 x 800 pixels and depicted a single recyclable against a black background. It is noted that to have a representative data set of recyclables images, they also considered deformed and dirty materials. You can find this information on page 7 of the PDF file.
+The authors of the article followed a semiautomated procedure to develop the data set for training Mask R-CNN. They collected **400 images for each of the material types** considered in the study, namely, ==**aluminum**, **paper and cardboard**, **polyethylene terephthalate** (PET) bottles, and **nylon**==. Then they followed a manual procedure to collect red-green-blue images. All images had the same size of **800 x 800 pixels** and depicted a single recyclable against a black background. It is noted that to have a representative data set of recyclables images, they **also considered deformed and dirty materials**. You can find this information on page 7 of the PDF file.
 
-1. First, they identified masks describing regions of the identified objects. They called this the Basic data set. 
-2. Then, they applied step two to gather 2,000 images of each material type, applying randomly three geometric transformations (translation, rotation, and scaling) to the image and the mask. They called this the Synthetic Single data set. 
-3. Finally, following the third processing step, they developed a data set that artificially described complex cases of multiple and overlapping objects, and changed the background. This was the Synthetic Complex data set. In particular, they developed 16,000 images for the training set and 5,600 for the validation set.
-
+1. First, they **identified masks describing regions of the identified objects**. They called this the ***Basic data set***. 
+2. Then, they applied step two to gather 2,000 images of each material type, applying randomly **three geometric transformations** (translation, rotation, and scaling) to the image and the mask. They called this the ***Synthetic Single data set***. 
+3. Finally, following the third processing step, they developed a data set that artificially described **complex cases of multiple and overlapping objects**, and **changed the background**. This was the ***Synthetic Complex data set***. In particular, they developed 16,000 images for the training set and 5,600 for the validation set.
+![[Pasted image 20240108084453.png]]
 # Training process
 - We used a public [[Mask Regional CNN|Mask R-CNN]] implementation that was trained on the data sets in the “Vision-Based Material Categorization” section, using 30% of the images for model learning validation and the remaining 70% for model training. 
 - To increase the image processing frame rate, we incorporated [[ResNet-50]] for feature extraction across entire photos.

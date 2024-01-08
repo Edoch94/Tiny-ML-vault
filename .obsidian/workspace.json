@@ -8,43 +8,41 @@
         "type": "tabs",
         "children": [
           {
-            "id": "ad176825ff520faa",
+            "id": "81b6ebd52daa7473",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "Papers/pdf/10 - Vision-based Material Classification for Robotic Urban Waste Sorting.pdf"
+              }
+            }
+          },
+          {
+            "id": "ac0d8685a081b446",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Papers/04 - ENet A Deep Neural Network Architecture for Real-Time Semantic Segmentation.md",
+                "file": "Papers/10 - Vision-based Material Classification for Robotic Urban Waste Sorting.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "8effab03a644d740",
+            "id": "09090d55310d34b2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Project/Repos.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "7795fb9ceb814cc7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Slides.md",
+                "file": "Concepts/Mask Regional CNN.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -118,7 +116,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Slides.md",
+                "file": "Papers/10 - Vision-based Material Classification for Robotic Urban Waste Sorting.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -135,7 +133,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Slides.md",
+                "file": "Papers/10 - Vision-based Material Classification for Robotic Urban Waste Sorting.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -158,7 +156,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Slides.md"
+                "file": "Papers/10 - Vision-based Material Classification for Robotic Urban Waste Sorting.md"
               }
             }
           }
@@ -166,7 +164,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -178,51 +177,52 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "7795fb9ceb814cc7",
+  "active": "ac0d8685a081b446",
   "lastOpenFiles": [
-    "Project/Repos.md",
-    "Slides.md",
-    "Xception.md",
-    "Pooling Layers.md",
-    "Convolutional Layers.md",
     "Papers/01 - BiSeNet Bilateral Segmentation Network for Real-time Semantic Segmentation.md",
+    "Papers/10 - Vision-based Material Classification for Robotic Urban Waste Sorting.md",
+    "Project/Repos.md",
+    "Concepts/Bilateral Segmentation Network.md",
+    "Concepts",
+    "Attachments/Pasted image 20240108084453.png",
+    "Concepts/Mask Regional CNN.md",
+    "Papers/pdf/10 - Vision-based Material Classification for Robotic Urban Waste Sorting.pdf",
+    "Papers/09 - Garbage Collection and Sorting with a Mobile Manipulator using Deep Learning and Whole-Body Control.md",
+    "Papers/08 - Class-Balanced Loss Based on Effective Number of Samples.md",
+    "Papers/07 - Focal Loss for Dense Object Detection.md",
+    "Papers/06 - Context Encoders Feature Learning by Inpainting.md",
+    "Papers/05 - Unsupervised representation learning by predicting image rotations.md",
     "Papers/04 - ENet A Deep Neural Network Architecture for Real-Time Semantic Segmentation.md",
+    "Papers/03 - ICNet for Real-Time Semantic Segmentationon High-Resolution Images.md",
+    "Papers/02 - BiSeNet V2 Bilateral Network with Guided Aggregation forReal-time Semantic Segmentation.md",
+    "Concepts/Notes fom Slack channel.md",
+    "Concepts/Slides and Storyboard.md",
+    "Concepts/Semantic Segmentation.md",
+    "Concepts/ResNet-50.md",
+    "Concepts/Region Proposal Network.md",
+    "Concepts/Pooling Layers.md",
+    "Attachments/Pasted image 20230625230247.png",
+    "Attachments/Pasted image 20230625225500.png",
+    "Attachments/Pasted image 20230625225910.png",
+    "Attachments/Pasted image 20230625225848.png",
+    "Attachments/Pasted image 20230625225831.png",
+    "Attachments/Pasted image 20230625225643.png",
+    "Concepts/Xception.md",
+    "Concepts/Convolutional Layers.md",
     "Papers/pdf/02 - BiSeNet V2 Bilateral Network with Guided Aggregation for Real-time Semantic Segmentation.pdf",
     "Papers/pdf/01 - BiSeNet Bilateral Segmentation Network for Real-time Semantic Segmentation.pdf",
-    "Papers/10 - Vision-based Material Classification for Robotic Urban Waste Sorting.md",
-    "Papers/07 - Focal Loss for Dense Object Detection.md",
-    "Papers/05 - Unsupervised representation learning by predicting image rotations.md",
-    "Papers/02 - BiSeNet V2 Bilateral Network with Guided Aggregation forReal-time Semantic Segmentation.md",
-    "Papers/03 - ICNet for Real-Time Semantic Segmentationon High-Resolution Images.md",
-    "Papers/06 - Context Encoders Feature Learning by Inpainting.md",
-    "Papers/08 - Class-Balanced Loss Based on Effective Number of Samples.md",
-    "Papers/09 - Garbage Collection and Sorting with a Mobile Manipulator using Deep Learning and Whole-Body Control.md",
-    "Images/Pasted image 20230429223848.png",
-    "Images/Pasted image 20230429231702.png",
-    "Cascade Label Guidance.md",
-    "Images/Pasted image 20230429221857.png",
-    "Cascade Network.md",
-    "Fully Convolutional Network.md",
-    "Images/Pasted image 20230429220036.png",
-    "Images/Pasted image 20230429204034.png",
-    "Images/Pasted image 20230429202624.png",
-    "Bilateral Segmentation Network.md",
+    "Attachments/Pasted image 20230429223848.png",
+    "Attachments/Pasted image 20230429231702.png",
+    "Concepts/Cascade Label Guidance.md",
+    "Attachments/Pasted image 20230429221857.png",
+    "Concepts/Cascade Network.md",
+    "Concepts/Fully Convolutional Network.md",
     "Spatial Path.md",
-    "Context Path.md",
-    "Mask Regional CNN.md",
-    "Downsampling.md",
-    "Images/Pasted image 20230429191935.png",
-    "Images",
-    "Images/Pasted image 20230429190020.png",
-    "U-Net architecture.md",
-    "ResNet-50.md",
-    "Convolutional Neural Networks.md",
+    "Attachments",
     "Project",
-    "Papers/pdf/10 - Vision-based Material Classification for Robotic Urban Waste Sorting.pdf",
     "Papers/pdf/09 - Garbage Collection and Sorting with a Mobile Manipulator using Deep Learning and Whole-Body Control.pdf",
     "Papers/pdf/08 - Class-Balanced Loss Based on Effective Number of Samples.pdf",
     "Papers/pdf/07 - Focal Loss for Dense Object Detection.pdf",
-    "Papers/pdf/06 - Context Encoders Feature Learning by Inpainting.pdf",
-    "Papers/pdf/05 - Unsupervised representation learning by predicting image rotations.pdf"
+    "Papers/pdf/06 - Context Encoders Feature Learning by Inpainting.pdf"
   ]
 }

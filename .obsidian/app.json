@@ -1,3 +1,7 @@
 {
-  "alwaysUpdateLinks": true
+  "alwaysUpdateLinks": true,
+  "attachmentFolderPath": "Attachments",
+  "userIgnoreFilters": [
+    "Attachments/"
+  ]
 }

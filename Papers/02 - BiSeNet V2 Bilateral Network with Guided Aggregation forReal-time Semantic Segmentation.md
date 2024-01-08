@@ -1,5 +1,7 @@
-#paper
-
+---
+tags:
+  - paper
+---
 # Abstract 
 The low-level details and high-level semantics are both essential to the semantic segmentation task. However, to speed up the model inference, <u>current approaches almost always sacrifice the low-level details</u>, which leads to a considerable accuracy decrease. We propose to **treat these spatial details** and **categorical semantics separately** to achieve high accuracy and high efficiency for real-time semantic segmentation. To this end, we propose an efficient and effective architecture with a good trade-off between speed and accuracy, termed Bilateral Segmentation Network (BiSeNet V2). This architecture involves: 
 1. a **Detail Branch**, with <u>wide channels</u> and <u>shallow layers</u> to **capture low-level details** and generate high-resolution feature representation; 
